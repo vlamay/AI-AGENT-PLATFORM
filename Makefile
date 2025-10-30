@@ -21,7 +21,7 @@ setup:
 
 start:
 	@echo "🚀 Starting all services..."
-	docker-compose up -d
+	docker compose up -d
 	@echo "✅ Services started!"
 	@echo ""
 	@echo "Access your platform:"
@@ -32,27 +32,27 @@ start:
 
 stop:
 	@echo "🛑 Stopping all services..."
-	docker-compose down
+	docker compose down
 
 restart:
 	@echo "🔄 Restarting all services..."
-	docker-compose restart
+	docker compose restart
 
 logs:
-	docker-compose logs -f
+	docker compose logs -f
 
 logs-orchestrator:
-	docker-compose logs -f orchestrator
+	docker compose logs -f orchestrator
 
 logs-ollama:
-	docker-compose logs -f ollama
+	docker compose logs -f ollama
 
 logs-frontend:
-	docker-compose logs -f frontend
+	docker compose logs -f frontend
 
 clean:
 	@echo "🧹 Cleaning up..."
-	docker-compose down -v
+	docker compose down -v
 	@echo "✅ Cleanup complete!"
 
 test:
@@ -61,8 +61,8 @@ test:
 
 migrate:
 	@echo "📊 Running migrations..."
-	docker-compose exec postgres psql -U ai_user -d ai_agents -f /docker-entrypoint-initdb.d/init.sql
+	docker compose exec postgres psql -U ai_user -d ai_agents -f /docker-entrypoint-initdb.d/init.sql
 
 ps:
-	docker-compose ps
+	docker compose ps
 

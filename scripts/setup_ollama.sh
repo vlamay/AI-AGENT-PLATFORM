@@ -12,7 +12,7 @@ fi
 # Start Ollama container if not running
 if ! docker ps | grep -q ollama; then
     echo "📦 Starting Ollama container..."
-    docker-compose up -d ollama
+    docker compose up -d ollama
     sleep 5
 fi
 
